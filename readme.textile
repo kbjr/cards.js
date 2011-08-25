@@ -1,0 +1,6 @@
+h1. cards.js
+
+A JavaScript Playing Card Library
+
+
+
