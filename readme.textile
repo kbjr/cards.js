@@ -2,5 +2,38 @@ h1. cards.js
 
 A JavaScript Playing Card Library
 
+h2. Basic Usage
+
+<pre><code>// Create an empty deck of cards
+var deck = new CardsJS.Deck();
+
+// Seed the deck with a standard 52 card poker deck
+deck.seed('poker');
+
+// Add a couple jokers
+deck.add([
+	new CardsJS.Card('other', 'joker'),
+	new CardsJS.Card('other', 'joker')
+]);
+
+// Shuffle the deck
+deck.shuffle();
+
+// Create a new card pile for discard
+deck.createPile('discard');
+
+// Draw the top card and discard it
+deck.draw({
+	sendTo: 'discard'
+});</code></pre>
+
+h2. Required Features
+
+cards.js uses some relatively new features of the JavaScript language that may not exist in all implementations. The following are features that are needed with links to information about how to handle cross-compatibilty.
+
+* Array.isArray() - "Compat":https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/isArray#Compatiblity
+* Array.prototype.filter() - "Compat":https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/filter#Compatiblity
+* Array.prototype.forEach() - "Compat":https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/forEach#Compatiblity
+* Array.prototype.indexOf() - "Compat":https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf#Compatiblity
 
 

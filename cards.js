@@ -12,54 +12,6 @@
 	var CardsJS = { };
 	
 // ----------------------------------------------------------------------------
-//  Ready Handler
-	
-	/**
-	 * Run a function when the library is ready (or, check if the library is loaded)
-	 *
-	 * @access  public
-	 * @param   function  the callback
-	 * @return  boolean
-	 */
-	CardsJS.ready = (function() {
-		var
-		stack = [ ],
-		ready = false,
-		result = function(callback) {
-			if (typeof callback === 'function') {
-				if (ready) {
-					runAsync(callback);
-				} else {
-					stack.push(callback);
-				}
-			}
-			return ready;
-		};
-		result._isReady = (function() {
-			var
-			library = false,
-			polyfills = false;
-			return function(what) {
-				switch (what) {
-					case 'library':
-						library = true;
-					break;
-					case 'polyfills':
-						polyfills = true;
-					break;
-				}
-				if (library && polyfills && ! ready) {
-					ready = true;
-					stack.forEach(function(callback) {
-						runAsync(callback);
-					});
-				}
-			};
-		}());
-		return result;
-	}());
-	
-// ----------------------------------------------------------------------------
 //  Do Feature Tests
 	
 	(function() {
@@ -140,7 +92,7 @@
 		 * @param   string    the type of deck (eg. "poker")
 		 * @return  void
 		 */
-		this.seedDeck = function(type) {
+		this.seed = function(type) {
 			populateDeck(type, function(suit, value) {
 				self.cards.push(new CardsJS.Card(suit, value));
 			});
