@@ -12,8 +12,8 @@ deck.seed('poker');
 
 // Add a couple jokers
 deck.add([
-	new CardsJS.Card('other', 'joker'),
-	new CardsJS.Card('other', 'joker')
+    new CardsJS.Card('other', 'joker'),
+    new CardsJS.Card('other', 'joker')
 ]);
 
 // Shuffle the deck
@@ -24,7 +24,7 @@ deck.createPile('discard');
 
 // Draw the top card and discard it
 deck.draw({
-	sendTo: 'discard'
+    sendTo: 'discard'
 });</code></pre>
 
 h2. Required Features
